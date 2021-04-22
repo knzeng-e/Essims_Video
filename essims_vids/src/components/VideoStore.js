@@ -8,7 +8,7 @@ const ussv_url ='https://firebasestorage.googleapis.com/v0/b/edouard-edna.appspo
 
 function VideoStore() {
     return (
-        <Container>
+        <Container >
             <Card.Group className="Videos" itemsPerRow={3} stackable centered>
                
                 <Video titre='Allez vous plaindre au soleil' duree='3:28' src={src} url={url}/>

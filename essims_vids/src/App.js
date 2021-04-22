@@ -15,7 +15,7 @@ function App() {
       <Router>
         <Segment className='Navbar' size='large'>
           <h1>Essim'Flix</h1>
-          <Menu pointing secondary>
+          <Menu pointing secondary stackable>
             {rubriques.map(onglet => {
               return (
                 <Link to = {renderPage(onglet)}>
