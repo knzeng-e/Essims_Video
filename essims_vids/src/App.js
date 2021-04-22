@@ -1,67 +1,47 @@
 import './App.css';
-import {useState} from 'react'
+import { useState } from 'react'
 import logo from './logo.svg';
-import VideoStore from './components/VideoStore';
-import { Card, Segment, Menu } from 'semantic-ui-react';
+import Home from './components/Home';
 import 'semantic-ui-css/semantic.min.css';
-
-const handleMenu = (menuName) => {
-  switch(menuName){
-    case 'Accueil':
-      console.log("Go to home Page");
-    case 'Animes':
-      console.log('Go to Dessins Animés')
-    case 'Series':
-      console.log('Go to Séries')
-    case 'Documentaires':
-      console.log('Go to Documentaires');
-    default: console.log(`${menuName} n'existe pas`)
-  }
-}
+import { renderPage, rubriques } from './utils/layoutUtils';
+import { Card, Segment, Menu } from 'semantic-ui-react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
   const [activeItem, setActiveItem] = useState('home')
   return (
     <div className="App">
-      <Segment className='Navbar' size = 'large'>
-                <h1>Essim'Flix</h1>
-                <Menu pointing secondary>
+      <Router>
+        <Segment className='Navbar' size='large'>
+          <h1>Essim'Flix</h1>
+          <Menu pointing secondary>
+            {rubriques.map(onglet => {
+              return (
+                <Link to = {renderPage(onglet)}>
                   <Menu.Item
                     className='Menu'
-                    name='Accueil'
-                    active={activeItem === 'home'}
+                    name = {onglet}
+                    active = {activeItem === onglet}
                     onClick = {
-                        () => {
-                          setActiveItem('home');
-                          handleMenu('Accueil');
-                        }
+                      () => {
+                        setActiveItem(onglet);
+                      }
                     }
                   />
-                  <Menu.Item
-                    className='Menu'
-                    name='Séries'
-                    active={activeItem === 'series'}
-                    onClick = {
-                        () => {
-                          setActiveItem('series');
-                          handleMenu('Series');
-                        }
-                    }
-                  />
-                  <Menu.Item
-                    className='Menu'
-                    name='Animés'
-                    active={activeItem === 'Animes'}
-                    onClick = {
-                        () => {
-                          setActiveItem('Animes');
-                          handleMenu('Animes');
-                        }
-                    }
-                  />
-                </Menu>
-      </Segment>
-      <VideoStore />
+                </Link>
+              )
+            })}
+          </Menu>
+        </Segment>
+        <Switch>
+          <Route exact path = '/' component = {Home}/>
+          {/* <Route path = 'series' component = {Series} />
+          <Route path = '/animes' component = {Animes} />
+          <Route path = '/Film' component = {} />
+          <Route path = '' component = {} />
+          <Route path = '' component = {} /> */}
+        </Switch>
+      </Router>
     </div>
   );
 }
