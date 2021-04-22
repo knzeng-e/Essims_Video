@@ -32,7 +32,6 @@ function VideoStore() {
                     src='https://firebasestorage.googleapis.com/v0/b/essims-videos.appspot.com/o/images%2FIMG_8100.JPG?alt=media&token=f73119ee-c11d-4b88-97eb-e29776dd1fd4' 
                     url= {ussv_url}/>
                 <Video duree='3:28' titre='Allez vous plaindre au soleil' src={src} url={url}/>
-                <video controls autoPla src='https://firebasestorage.googleapis.com/v0/b/essims-videos.appspot.com/o/Coco_disney_pixar_2017.mp4?alt=media&token=1ddc3765-84dc-46c0-83d5-bf7a1aaa2f2d'/>
             </Card.Group>
         </Container>
     )

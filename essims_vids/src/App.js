@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react'
 import logo from './logo.svg';
 import Home from './components/Home';
+import Animes from './components/Animes';
 import 'semantic-ui-css/semantic.min.css';
 import { renderPage, rubriques } from './utils/layoutUtils';
 import { Card, Segment, Menu } from 'semantic-ui-react';
@@ -35,8 +36,8 @@ function App() {
         </Segment>
         <Switch>
           <Route exact path = '/' component = {Home}/>
-          {/* <Route path = 'series' component = {Series} />
           <Route path = '/animes' component = {Animes} />
+          {/* <Route path = 'series' component = {Series} />
           <Route path = '/Film' component = {} />
           <Route path = '' component = {} />
           <Route path = '' component = {} /> */}
