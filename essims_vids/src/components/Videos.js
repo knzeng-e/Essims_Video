@@ -1,25 +1,37 @@
-import React from 'react';
-import {Segment, Container, Card, Icon} from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Image, Card, Modal } from 'semantic-ui-react';
 
-
-const Videos = ({src, url, titre, duree}) => {
+const Videos = ({ src, url, description, titre, duree }) => {
+    const [open, setOpen] = useState(false);
+    const handleOpen = (e, settings) => {
+        setOpen(true)
+    }
+    const handleClose = () => {
+        setOpen(false);
+    };
     return (
         <>
-                    <Card
-                        image={src}
-                        href={url}
-                        centered
-                        color='black'
-                        header={titre}
-                        meta='Documentaire'
-                        description="Un Conte de Lord Ékomy Ndong ☥
-                                    co-Ecrit par Dia 
-                                    raconté par Maat Le Seigneur Lion
-                                    illustré par Niko Maboga
-                                    inspiré par L'album Ibogaine de Lord Ekomy Ndong
-                                    www.ekomyndong.com"
-                        extra={<><Icon name='play' /> {duree}</>}
-                    />
+            <Card fluid onClick={(e) => {
+                handleOpen(e, { "contenu": url })
+            }} >
+                <Image src={src}/>
+            </Card>
+
+            {/* Modal */}
+            <Modal
+                open={open}
+                onClose={handleClose}
+                basic
+            >
+                <Modal.Content >
+                    <Card fluid>
+                            <video title={titre} width='100%' height='100%' preload controls autoPlay src={url} />
+                        <Card.Content textAlign='center' className='CardVideoContent'>
+                            {description}
+                        </Card.Content>
+                    </Card>
+                </Modal.Content>
+            </Modal>
         </>
     )
 }

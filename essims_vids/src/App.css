@@ -62,3 +62,16 @@
   display: flexbox;
   /* flex-direction: row; */
 }
+
+.CardVideoContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(#000000fd, #020d2f) !important;
+  color:white;
+  font-size: large!important;
+  font-style: italic;
+  min-height: 21vh;
+  text-align: center !important;
+}
