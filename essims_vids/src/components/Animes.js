@@ -1,6 +1,6 @@
 import React from 'react';
 import Video from './Videos';
-import { coco, soul } from '../utils/videoLinks/animeLinks';
+import { coco, soul, garcon_et_bete } from '../utils/videoLinks/animeLinks';
 import { Card, Container, Divider, Header } from 'semantic-ui-react';
 
 function Animes() {
@@ -15,6 +15,7 @@ function Animes() {
                     src={coco.illustration}
                     url={coco.film}
                     description={coco.description}
+                    poster={coco.poster}
                 />
                 <Video
                     duree='1:45:03'
@@ -22,6 +23,15 @@ function Animes() {
                     src={soul.illustration}
                     url={soul.film}
                     description={soul.description}
+                    poster={soul.poster}
+                />
+                <Video
+                    duree='1:45:03'
+                    titre="Le Garçon et la Bête"
+                    src={garcon_et_bete.illustration}
+                    url={garcon_et_bete.film}
+                    description={garcon_et_bete.description}
+                    poster={garcon_et_bete.poster}
                 />
                 {/* <Video
                     duree='1:45:03'
